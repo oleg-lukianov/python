@@ -1,10 +1,12 @@
 from selenium import webdriver
   
 # create webdriver object
-driver = webdriver.Chrome()
+#driver = webdriver.Chrome()
+#driver = webdriver.Firefox(command_executor="/sbin/geckodriver")
+driver = webdriver.Firefox()
   
 # get lambdatest
-driver.get("https://web.sabit.keenetic.pro/project_program1c/index.html")
+driver.get("http://erlan.pro/project_program1c/index.html")
   
 # get element 
 element = driver.find_element_by_id("get_items_id")

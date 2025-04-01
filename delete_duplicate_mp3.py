@@ -53,7 +53,8 @@ class DeleteDuplicateMusicTrack:
         """
         this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
         logging.debug('Run function = %s', this_function_name)
-        pattern = ".[a-z0-9]{3}$|^[0-9.]{1,4}"
+ #       pattern = ".[a-z0-9]{3}$|^[0-9.]{1,4}"
+        pattern = ""
 
         for key_track in self.list_track:
             unique_name = re.sub(pattern, '', self.list_track[key_track])

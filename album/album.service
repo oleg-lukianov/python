@@ -1,0 +1,13 @@
+[Unit]
+Description=Album service
+After=multi-user.target
+
+[Service]
+User=oleg
+Group=oleg
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/ALL/github/python/album/album.py
+
+[Install]
+WantedBy=multi-user.target

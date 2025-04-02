@@ -8,6 +8,7 @@ Group=oleg
 Type=simple
 Restart=always
 ExecStart=/usr/bin/python3 /home/ALL/github/python/album/album.py
+SyslogIdentifier=album
 
 [Install]
 WantedBy=multi-user.target

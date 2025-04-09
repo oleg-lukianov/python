@@ -4,6 +4,7 @@ Album on Flask engine
 import os
 import re
 import random
+from datetime import datetime as dt
 from flask import Flask, render_template
 
 FOLDER = os.path.join('static', 'photo')
@@ -21,7 +22,15 @@ def show_index():
     """
     Show index
     """
-    full_photo_name = get_random_jpg()
+    today = dt.now()
+    format_date = today.strftime("%H:%M")
+    t_object = dt.strptime(format_date, "%H:%M")
+
+    if dt.strptime("06:00", "%H:%M") <= t_object >= dt.strptime("22:00", "%H:%M"):
+        full_photo_name = None
+    else:
+        full_photo_name = get_random_jpg()
+
     return render_template("index.html", user_image = full_photo_name)
 
 
@@ -33,10 +42,15 @@ def find_jpg():
     for root, _, files in os.walk(PATH_MAIN):
         for fname in files:
             # print("fname: ", fname)
+
             if re.search("favicon.png", fname):
                 pass
             else:
-                full_photo_name = os.path.join(FOLDER, fname).replace(os.sep, os.altsep)
+                if os.sep == "\\":
+                    full_photo_name = os.path.join(FOLDER, fname).replace(os.sep, os.altsep)
+                else:
+                    full_photo_name = os.path.join(FOLDER, fname)
+
                 ALL_PHOTO.append(full_photo_name)
                 # print(f'full_photo_name: {full_photo_name}')
 

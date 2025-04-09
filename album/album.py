@@ -36,7 +36,7 @@ def find_jpg():
             if re.search("favicon.png", fname):
                 pass
             else:
-                full_photo_name = os.path.join(FOLDER, fname)
+                full_photo_name = os.path.join(FOLDER, fname).replace(os.sep, os.altsep)
                 ALL_PHOTO.append(full_photo_name)
                 # print(f'full_photo_name: {full_photo_name}')
 
@@ -49,8 +49,10 @@ def get_random_jpg():
         full_photo_name = os.path.join(app.config['UPLOAD_FOLDER'], 'favicon.png')
         random_photo = 0
         ALL_PHOTO.append(full_photo_name)
+    elif len(ALL_PHOTO) == 1:
+        random_photo = 0
     else:
-        random_photo = random.randrange(0, len(ALL_PHOTO))
+        random_photo = random.randrange(0, len(ALL_PHOTO) - 1)
 
     print("Count All_PHOTO: ", len(ALL_PHOTO))
 

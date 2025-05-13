@@ -7,7 +7,7 @@ User=oleg
 Group=oleg
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /home/ALL/github/python/album/album.py
+ExecStart=/usr/bin/python3 /opt/github/python/album/album.py
 SyslogIdentifier=album
 
 [Install]

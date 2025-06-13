@@ -26,7 +26,7 @@ def show_index():
     format_date = today.strftime("%H:%M")
     t_object = dt.strptime(format_date, "%H:%M")
 
-    if dt.strptime("06:00", "%H:%M") <= t_object >= dt.strptime("22:00", "%H:%M"):
+    if dt.strptime("06:00", "%H:%M") <= t_object >= dt.strptime("23:59", "%H:%M"):
         full_photo_name = None
     else:
         full_photo_name = get_random_jpg()
